@@ -39,9 +39,10 @@ function draw() {
 		LocateFood();
 		
 	}
-
+	
 	fill(200);
-	rect(food.x,food.y -2,scl + 1,scl);
+	rect(food.x,food.y +2,scl + 2,scl);
+	
   
 }
 
