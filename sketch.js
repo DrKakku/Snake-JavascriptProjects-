@@ -3,7 +3,8 @@ var scl = 20;
 var food ;
 var speed = 20;
 var score = 0;
-
+var height = windowHeight;
+var width = windowWidth;
 function setup() {
 	createCanvas(windowWidth, windowHeight);
 	s = new Snake;
@@ -17,7 +18,7 @@ function setup() {
 }
 
 function draw() {
-	
+	screenChange();
 	background(30,30,50); 
 	textSize(32);
 	fill(100,120,153);
@@ -25,6 +26,7 @@ function draw() {
 	if(s.death())
 	{
 		alert("You died");
+		score = 0;
 	}
 	s.update();
 	s.show();
@@ -39,10 +41,18 @@ function draw() {
 	}
 
 	fill(200);
-	rect(food.x,food.y,scl + 1,scl);
+	rect(food.x,food.y -2,scl + 1,scl);
   
 }
 
+function screenChange()
+{
+	if(height != windowHeight || width != windowWidth){
+		createCanvas(windowWidth, windowHeight);
+		var height = windowHeight;
+		var width = windowWidth;
+	}
+}
 
 
 function LocateFood()
